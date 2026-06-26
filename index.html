@@ -24,98 +24,106 @@
   <meta name="twitter:description" content="Track poker buy-ins and cashouts, then settle the whole table with the fewest payments possible. Free to try. iOS." />
   <meta name="twitter:image" content="https://heagenb03.github.io/cashcage-legal/assets/icon.png" />
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      background: #0A0A0A; color: #FFFFFF; min-height: 100vh;
-      display: flex; flex-direction: column; align-items: center; padding: 56px 24px;
-    }
-    .hero { text-align: center; max-width: 560px; }
-    .app-name { font-size: 40px; font-weight: 700; letter-spacing: 7px; margin-bottom: 12px; }
-    .logo-divider { width: 48px; height: 3px; background: #B072BB; border-radius: 2px;
-      margin: 0 auto 18px; box-shadow: 0 0 10px rgba(176,114,187,0.7); }
-    .tagline { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 14px; }
-    .subtag { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.5; margin-bottom: 32px; }
-    .cta {
-      display: inline-block; padding: 16px 32px; background: #B072BB; color: #0A0A0A;
-      font-size: 16px; font-weight: 700; border-radius: 14px; text-decoration: none;
-      box-shadow: 0 0 18px rgba(176,114,187,0.5); transition: transform 0.15s, box-shadow 0.15s;
-    }
-    .cta:hover { transform: translateY(-1px); box-shadow: 0 0 26px rgba(176,114,187,0.7); }
-    /* CSS phone frame — bounds the tall screenshot by width (max 270px → ~584px tall) */
-    .phone {
-      width: 100%; max-width: 270px; margin: 44px auto 0;
-      border: 10px solid #1A1A1A; border-radius: 44px; background: #1A1A1A;
-      box-shadow: 0 0 40px rgba(176,114,187,0.25), 0 20px 50px rgba(0,0,0,0.6);
-      overflow: hidden;
-    }
-    .phone img { display: block; width: 100%; height: auto; border-radius: 34px; }
-    .features {
-      display: flex; flex-direction: column; gap: 14px; max-width: 480px; width: 100%;
-      margin: 48px 0 8px;
-    }
-    .feature {
-      background: #1A1A1A; border: 1px solid rgba(176,114,187,0.2); border-radius: 14px;
-      padding: 18px 20px; text-align: left;
-    }
-    .feature h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-    .feature p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.45; }
-    .howit { font-size: 14px; color: rgba(255,255,255,0.5); max-width: 480px; text-align: center;
-      margin: 24px 0 0; line-height: 1.6; }
-    .footer { margin-top: 48px; font-size: 12px; color: rgba(255,255,255,0.3); text-align: center; line-height: 2; }
-    .footer a { color: rgba(176,114,187,0.7); text-decoration: none; }
-    .footer a:hover { color: #B072BB; }
-    .footer .legal-links, .footer .social-links { margin-bottom: 6px; }
-    .footer .legal-links a, .footer .social-links a { margin: 0 8px; }
-  </style>
+  <link rel="stylesheet" href="legal.css" />
+  <link rel="stylesheet" href="landing.css" />
+  <script src="landing.js" defer></script>
 </head>
 <body>
-  <div class="hero">
-    <div class="app-name">CASH CAGE</div>
-    <div class="logo-divider"></div>
-    <div class="tagline">End every poker night without the math headache.</div>
-    <div class="subtag">Track buy-ins and cashouts, then settle the whole table with the fewest payments possible. No spreadsheets. No "who owes who?"</div>
-    <a class="cta" href="https://apps.apple.com/us/app/cash-cage/id6759301097">Download on the App Store</a>
-  </div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="phone">
-    <img src="assets/screenshot-settlement.jpg" alt="Cash Cage settlement screen showing who pays who with the fewest transactions" />
-  </div>
+  <header class="topbar">
+    <a class="wordmark" href="index.html"><span class="chev">&#x203A;</span> CASH CAGE</a>
+    <nav aria-label="Site">
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="terms-of-service.html">Terms</a>
+      <a href="account-deletion.html">Account Deletion</a>
+    </nav>
+  </header>
 
-  <div class="features">
-    <div class="feature">
-      <h3>⚡ Fast at the table</h3>
-      <p>Add players and log buy-ins or cashouts in seconds. Works fully offline — no signal needed.</p>
-    </div>
-    <div class="feature">
-      <h3>🧮 Math-optimal settlements</h3>
-      <p>Cash Cage computes the minimum number of transactions to square everyone up — not a naive split.</p>
-    </div>
-    <div class="feature">
-      <h3>🃏 Built for home games</h3>
-      <p>Made for the host running the night and the friends who just want to know what they owe.</p>
-    </div>
-  </div>
+  <main id="main" class="lp-wrap">
+    <section class="hero">
+      <div class="hero__copy">
+        <p class="hero__eyebrow">The Cashier&rsquo;s Cage</p>
+        <h1 class="hero__title">Settle the whole table in the fewest payments.</h1>
+        <p class="hero__sub">Cash Cage tracks every buy-in and cash-out, then works out who pays who &mdash; in as few transfers as possible. No spreadsheets. No &ldquo;wait, who owes who?&rdquo;</p>
+        <div class="cta-row">
+          <a class="cta" href="https://apps.apple.com/us/app/cash-cage/id6759301097">Download on the App Store</a>
+          <a class="cta--ghost" href="#how">How it works &darr;</a>
+        </div>
+      </div>
 
-  <p class="howit">Start a game → add players → log buy-ins &amp; cashouts → tap settle. Done.</p>
+      <aside class="ledger hero__order-ledger" id="ledger" aria-label="Example settlement">
+        <div class="ledger__head">
+          <span class="ledger__title">Settle-up</span>
+          <span class="ledger__meta">3 players</span>
+        </div>
+        <table class="tally">
+          <tbody>
+            <tr><td class="tally__name">Maya</td><td class="tally__net up">+$120</td></tr>
+            <tr><td class="tally__name">Dev</td><td class="tally__net down">&minus;$80</td></tr>
+            <tr><td class="tally__name">Sam</td><td class="tally__net down">&minus;$40</td></tr>
+          </tbody>
+        </table>
+        <div class="ledger__rule"></div>
+        <ul class="payments">
+          <li class="payment"><span class="payment__from">Dev</span><span class="payment__arrow">&rarr;</span><span class="payment__to">Maya</span><span class="payment__amt">$80</span></li>
+          <li class="payment"><span class="payment__from">Sam</span><span class="payment__arrow">&rarr;</span><span class="payment__to">Maya</span><span class="payment__amt">$40</span></li>
+        </ul>
+        <div class="ledger__foot">2 payments &middot; settled</div>
+      </aside>
+    </section>
 
-  <div class="phone">
-    <img src="assets/screenshot-game.jpg" alt="Cash Cage live game screen tracking each player's buy-ins and cashouts" />
-  </div>
+    <section class="features" aria-label="Features">
+      <div class="feature">
+        <span class="chip chip--p" aria-hidden="true"></span>
+        <div>
+          <h3>Log it at the table</h3>
+          <p>Add players and record buy-ins or cash-outs in a tap. Works fully offline &mdash; no signal needed.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="chip chip--g" aria-hidden="true"></span>
+        <div>
+          <h3>Fewest payments, always</h3>
+          <p>Cash Cage solves for the minimum number of transfers to square everyone up &mdash; not a naive everyone-pays-everyone split.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="chip chip--r" aria-hidden="true"></span>
+        <div>
+          <h3>Made for the host</h3>
+          <p>Built for whoever&rsquo;s running the night and the friends who just want to know what they owe.</p>
+        </div>
+      </div>
+    </section>
 
-  <div class="footer">
-    <div class="legal-links">
-      <a href="privacy-policy.html">Privacy Policy</a> ·
-      <a href="terms-of-service.html">Terms of Service</a> ·
+    <section class="how" id="how">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>Start a game and add tonight&rsquo;s players.</li>
+        <li>Log buy-ins and cash-outs as the night runs.</li>
+        <li>Tap <strong>Settle</strong> &mdash; Cash Cage returns the shortest list of payments.</li>
+      </ol>
+    </section>
+
+    <section class="shots" aria-label="App screenshots">
+      <div class="shot"><img src="assets/screenshot-settlement.jpg" alt="Cash Cage settlement screen showing who pays who with the fewest transactions" /></div>
+      <div class="shot"><img src="assets/screenshot-game.jpg" alt="Cash Cage live game screen tracking each player's buy-ins and cash-outs" /></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="row">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-service.html">Terms of Service</a>
       <a href="account-deletion.html">Account Deletion</a>
     </div>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/heagenb/" target="_blank" rel="noopener">LinkedIn</a> ·
-      <a href="https://github.com/heagenb03" target="_blank" rel="noopener">GitHub</a> ·
+    <div class="row">
+      <a href="https://www.linkedin.com/in/heagenb/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/heagenb03" target="_blank" rel="noopener">GitHub</a>
       <a href="mailto:cashcageapp@gmail.com">cashcageapp@gmail.com</a>
     </div>
-    &copy; 2025 Heagen Bell
-  </div>
+    <div>&copy; 2025 Heagen Bell</div>
+  </footer>
 </body>
 </html>
