@@ -62,7 +62,7 @@
   display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start;
   background: var(--surface); border: 1px solid var(--hairline); border-radius: 14px; padding: 20px 22px;
 }
-.chip { width: 26px; height: 26px; border-radius: 50%; margin-top: 2px; flex-shrink: 0;
+.chip { width: 26px; height: 26px; border-radius: 50%; margin-top: 2px;
   border: 2px dashed rgba(255,255,255,.35); }
 .chip--p { background: var(--accent); border-color: rgba(255,255,255,.45); }
 .chip--g { background: var(--up); border-color: rgba(255,255,255,.45); }
