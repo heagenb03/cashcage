@@ -85,3 +85,23 @@
   .hero__order-ledger { order: 2; }
   .shots { grid-template-columns: 1fr; max-width: 300px; }
 }
+
+/* ---- ledger resolve animation (only active when JS opts in) ---- */
+.ledger.is-settling .tally tr,
+.ledger.is-settling .payment {
+  opacity: 0; transform: translateY(6px);
+}
+.ledger.is-settling.is-resolved .tally tr,
+.ledger.is-settling.is-resolved .payment {
+  opacity: 1; transform: none;
+  transition: opacity .45s ease, transform .45s ease;
+}
+.ledger.is-settling.is-resolved .tally tr:nth-child(2) { transition-delay: .08s; }
+.ledger.is-settling.is-resolved .tally tr:nth-child(3) { transition-delay: .16s; }
+.ledger.is-settling.is-resolved .payment:nth-child(1) { transition-delay: .42s; }
+.ledger.is-settling.is-resolved .payment:nth-child(2) { transition-delay: .54s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ledger.is-settling .tally tr,
+  .ledger.is-settling .payment { opacity: 1; transform: none; transition: none; }
+}
