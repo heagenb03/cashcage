@@ -3,129 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cash Cage — Legal</title>
+  <title>Cash Cage — Poker Buy-in & Cashout Tracker | Settle Up the Table</title>
+  <meta name="description" content="Cash Cage tracks poker buy-ins and cashouts, then calculates the fewest payments needed to settle the whole table. Free to try. iOS." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+
+  <!-- Open Graph / Twitter — ABSOLUTE urls required (scrapers fetch out of context) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Cash Cage — Poker Buy-in & Cashout Tracker" />
+  <meta property="og:description" content="Track poker buy-ins and cashouts, then settle the whole table with the fewest payments possible. Free to try. iOS." />
+  <meta property="og:url" content="https://heagenb03.github.io/cashcage-legal/" />
+  <meta property="og:image" content="https://heagenb03.github.io/cashcage-legal/assets/icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Cash Cage — Poker Buy-in & Cashout Tracker" />
+  <meta name="twitter:description" content="Track poker buy-ins and cashouts, then settle the whole table with the fewest payments possible. Free to try. iOS." />
+  <meta name="twitter:image" content="https://heagenb03.github.io/cashcage-legal/assets/icon.png" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      background: #0A0A0A;
-      color: #FFFFFF;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 24px;
+      background: #0A0A0A; color: #FFFFFF; min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; padding: 56px 24px;
     }
-
-    .card {
-      background: #1A1A1A;
-      border-radius: 20px;
-      padding: 48px 40px;
-      max-width: 420px;
-      width: 100%;
-      text-align: center;
-      border: 1px solid rgba(176, 114, 187, 0.2);
+    .hero { text-align: center; max-width: 560px; }
+    .app-name { font-size: 40px; font-weight: 700; letter-spacing: 7px; margin-bottom: 12px; }
+    .logo-divider { width: 48px; height: 3px; background: #B072BB; border-radius: 2px;
+      margin: 0 auto 18px; box-shadow: 0 0 10px rgba(176,114,187,0.7); }
+    .tagline { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 14px; }
+    .subtag { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.5; margin-bottom: 32px; }
+    .cta {
+      display: inline-block; padding: 16px 32px; background: #B072BB; color: #0A0A0A;
+      font-size: 16px; font-weight: 700; border-radius: 14px; text-decoration: none;
+      box-shadow: 0 0 18px rgba(176,114,187,0.5); transition: transform 0.15s, box-shadow 0.15s;
     }
-
-    .app-name {
-      font-size: 32px;
-      font-weight: 700;
-      letter-spacing: 6px;
-      color: #FFFFFF;
-      margin-bottom: 10px;
+    .cta:hover { transform: translateY(-1px); box-shadow: 0 0 26px rgba(176,114,187,0.7); }
+    /* CSS phone frame — bounds the tall screenshot by width (max 270px → ~584px tall) */
+    .phone {
+      width: 100%; max-width: 270px; margin: 44px auto 0;
+      border: 10px solid #1A1A1A; border-radius: 44px; background: #1A1A1A;
+      box-shadow: 0 0 40px rgba(176,114,187,0.25), 0 20px 50px rgba(0,0,0,0.6);
+      overflow: hidden;
     }
-
-    .logo-divider {
-      width: 40px;
-      height: 3px;
-      background: #B072BB;
-      border-radius: 2px;
-      margin: 0 auto 14px;
-      box-shadow: 0 0 10px rgba(176, 114, 187, 0.7);
+    .phone img { display: block; width: 100%; height: auto; border-radius: 34px; }
+    .features {
+      display: flex; flex-direction: column; gap: 14px; max-width: 480px; width: 100%;
+      margin: 48px 0 8px;
     }
-
-    .subtitle {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.4);
-      margin-bottom: 40px;
+    .feature {
+      background: #1A1A1A; border: 1px solid rgba(176,114,187,0.2); border-radius: 14px;
+      padding: 18px 20px; text-align: left;
     }
-
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    a.doc-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 20px;
-      background: #0A0A0A;
-      border-radius: 14px;
-      border: 1px solid #2A2A2A;
-      text-decoration: none;
-      color: #FFFFFF;
-      font-size: 15px;
-      font-weight: 600;
-      transition: border-color 0.15s, background 0.15s;
-    }
-
-    a.doc-link:hover {
-      border-color: rgba(176, 114, 187, 0.5);
-      background: rgba(176, 114, 187, 0.06);
-    }
-
-    .doc-link-arrow {
-      color: #B072BB;
-      font-size: 16px;
-      opacity: 0.8;
-    }
-
-    .footer {
-      margin-top: 36px;
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.25);
-    }
-
-    .footer a {
-      color: rgba(176, 114, 187, 0.6);
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      color: #B072BB;
-    }
+    .feature h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .feature p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.45; }
+    .howit { font-size: 14px; color: rgba(255,255,255,0.5); max-width: 480px; text-align: center;
+      margin: 24px 0 0; line-height: 1.6; }
+    .footer { margin-top: 48px; font-size: 12px; color: rgba(255,255,255,0.3); text-align: center; line-height: 2; }
+    .footer a { color: rgba(176,114,187,0.7); text-decoration: none; }
+    .footer a:hover { color: #B072BB; }
+    .footer .legal-links, .footer .social-links { margin-bottom: 6px; }
+    .footer .legal-links a, .footer .social-links a { margin: 0 8px; }
   </style>
 </head>
 <body>
-  <div class="card">
+  <div class="hero">
     <div class="app-name">CASH CAGE</div>
     <div class="logo-divider"></div>
-    <div class="subtitle">Legal Documents</div>
-    <div class="links">
-      <a class="doc-link" href="privacy-policy.html">
-        Privacy Policy
-        <span class="doc-link-arrow">›</span>
-      </a>
-      <a class="doc-link" href="terms-of-service.html">
-        Terms of Service
-        <span class="doc-link-arrow">›</span>
-      </a>
-      <a class="doc-link" href="account-deletion.html">
-        Account Deletion
-        <span class="doc-link-arrow">›</span>
-      </a>
+    <div class="tagline">End every poker night without the math headache.</div>
+    <div class="subtag">Track buy-ins and cashouts, then settle the whole table with the fewest payments possible. No spreadsheets. No "who owes who?"</div>
+    <a class="cta" href="https://apps.apple.com/us/app/cash-cage/id6759301097">Download on the App Store</a>
+  </div>
+
+  <div class="phone">
+    <img src="assets/screenshot-settlement.jpg" alt="Cash Cage settlement screen showing who pays who with the fewest transactions" />
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <h3>⚡ Fast at the table</h3>
+      <p>Add players and log buy-ins or cashouts in seconds. Works fully offline — no signal needed.</p>
     </div>
-    <div class="footer">
-      &copy; 2025 Heagen Bell &middot;
+    <div class="feature">
+      <h3>🧮 Math-optimal settlements</h3>
+      <p>Cash Cage computes the minimum number of transactions to square everyone up — not a naive split.</p>
+    </div>
+    <div class="feature">
+      <h3>🃏 Built for home games</h3>
+      <p>Made for the host running the night and the friends who just want to know what they owe.</p>
+    </div>
+  </div>
+
+  <p class="howit">Start a game → add players → log buy-ins &amp; cashouts → tap settle. Done.</p>
+
+  <div class="phone">
+    <img src="assets/screenshot-game.jpg" alt="Cash Cage live game screen tracking each player's buy-ins and cashouts" />
+  </div>
+
+  <div class="footer">
+    <div class="legal-links">
+      <a href="privacy-policy.html">Privacy Policy</a> ·
+      <a href="terms-of-service.html">Terms of Service</a> ·
+      <a href="account-deletion.html">Account Deletion</a>
+    </div>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/heagenb/" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://github.com/heagenb03" target="_blank" rel="noopener">GitHub</a> ·
       <a href="mailto:cashcageapp@gmail.com">cashcageapp@gmail.com</a>
     </div>
+    &copy; 2025 Heagen Bell
   </div>
 </body>
 </html>
