@@ -1,0 +1,107 @@
+/* ===== Cash Cage — landing page (consumes tokens from legal.css) ===== */
+
+.lp-wrap { max-width: 1040px; margin: 0 auto; padding: 56px 24px 0; }
+
+/* ---- hero ---- */
+.hero {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+  gap: 56px; align-items: center; margin-bottom: 24px;
+}
+.hero__eyebrow {
+  font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 18px;
+}
+.hero__title {
+  font-family: var(--display); font-weight: 700; font-size: clamp(34px, 5vw, 52px);
+  line-height: 1.05; letter-spacing: -1px; color: var(--text); margin-bottom: 18px;
+}
+.hero__sub { font-size: 17px; color: var(--muted); line-height: 1.6; margin-bottom: 28px; max-width: 30em; }
+.cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+.cta {
+  display: inline-block; padding: 15px 28px; background: var(--accent); color: #0A0A0A;
+  font-family: var(--display); font-size: 15px; font-weight: 700; border-radius: 12px;
+  text-decoration: none; transition: transform .15s ease, background .15s ease;
+}
+.cta:hover { transform: translateY(-1px); background: #c08ac9; }
+.cta--ghost { color: var(--muted); font-family: var(--mono); font-size: 13px; text-decoration: none; }
+.cta--ghost:hover { color: var(--accent); }
+
+/* ---- signature: the settlement ledger, seen through the cage bars ---- */
+.ledger {
+  position: relative; background: var(--surface); border: 1px solid var(--hairline);
+  border-radius: 16px; padding: 22px 24px;
+}
+/* brass cage bars bracketing the ledger */
+.ledger::before, .ledger::after {
+  content: ""; position: absolute; top: 14px; bottom: 14px; width: 1px;
+  background: var(--brass); opacity: .55;
+}
+.ledger::before { left: 8px; }
+.ledger::after { right: 8px; }
+.ledger__head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; }
+.ledger__title { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--accent); }
+.ledger__meta { font-family: var(--mono); font-size: 11px; color: var(--faint); }
+.tally { width: 100%; border-collapse: collapse; }
+.tally td { padding: 7px 0; font-size: 15px; }
+.tally__name { font-family: var(--sans); color: var(--body); }
+.tally__net { text-align: right; font-family: var(--mono); font-weight: 700; font-variant-numeric: tabular-nums; }
+.tally__net.up { color: var(--up); }
+.tally__net.down { color: var(--down); }
+.ledger__rule { height: 1px; background: var(--brass); opacity: .4; margin: 12px 0; }
+.payments { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.payment { display: grid; grid-template-columns: 1fr auto 1fr auto; gap: 8px; align-items: center; font-size: 15px; }
+.payment__from { color: var(--down); font-weight: 600; }
+.payment__arrow { color: var(--brass); font-family: var(--mono); }
+.payment__to { color: var(--up); font-weight: 600; }
+.payment__amt { font-family: var(--mono); font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; }
+.ledger__foot { margin-top: 14px; font-family: var(--mono); font-size: 11px; color: var(--faint); text-align: right; }
+
+/* ---- features: chip-denomination rows (no emoji) ---- */
+.features { display: grid; gap: 14px; margin: 64px 0 0; }
+.feature {
+  display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start;
+  background: var(--surface); border: 1px solid var(--hairline); border-radius: 14px; padding: 20px 22px;
+}
+.chip { width: 26px; height: 26px; border-radius: 50%; margin-top: 2px; flex-shrink: 0;
+  border: 2px dashed rgba(255,255,255,.35); }
+.chip--p { background: var(--accent); border-color: rgba(255,255,255,.45); }
+.chip--g { background: var(--up); border-color: rgba(255,255,255,.45); }
+.chip--r { background: var(--down); border-color: rgba(255,255,255,.45); }
+.feature h3 { font-family: var(--display); font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+.feature p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+/* ---- how it works (real sequence; reuses ol.steps from legal.css) ---- */
+.how { margin: 64px 0 0; }
+.how h2 { font-family: var(--display); font-size: 20px; color: var(--text); margin-bottom: 20px; }
+
+/* ---- phone screenshots, de-glowed ---- */
+.shots { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 600px; margin: 64px auto 0; }
+.shot { border: 8px solid var(--surface); border-radius: 36px; background: var(--surface); overflow: hidden; }
+.shot img { display: block; width: 100%; height: auto; border-radius: 28px; }
+
+/* ---- responsive ---- */
+@media (max-width: 820px) {
+  .hero { grid-template-columns: 1fr; gap: 36px; }
+  .hero__order-ledger { order: 2; }
+  .shots { grid-template-columns: 1fr; max-width: 300px; }
+}
+
+/* ---- ledger resolve animation (only active when JS opts in) ---- */
+.ledger.is-settling .tally tr,
+.ledger.is-settling .payment {
+  opacity: 0; transform: translateY(6px);
+}
+.ledger.is-settling.is-resolved .tally tr,
+.ledger.is-settling.is-resolved .payment {
+  opacity: 1; transform: none;
+  transition: opacity .45s ease, transform .45s ease;
+}
+.ledger.is-settling.is-resolved .tally tr:nth-child(2) { transition-delay: .08s; }
+.ledger.is-settling.is-resolved .tally tr:nth-child(3) { transition-delay: .16s; }
+.ledger.is-settling.is-resolved .payment:nth-child(1) { transition-delay: .42s; }
+.ledger.is-settling.is-resolved .payment:nth-child(2) { transition-delay: .54s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ledger.is-settling .tally tr,
+  .ledger.is-settling .payment { opacity: 1; transform: none; transition: none; }
+}
