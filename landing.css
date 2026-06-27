@@ -98,22 +98,34 @@
   .shots { grid-template-columns: 1fr; max-width: 300px; }
 }
 
-/* ---- ledger resolve animation (only active when JS opts in) ---- */
-.ledger.is-settling .tally tr,
+/* ---- settle resolve animation (only active when JS opts in) ---- */
+.ledger.is-settling .balances tr,
+.ledger.is-settling .settle__pivot,
 .ledger.is-settling .payment {
   opacity: 0; transform: translateY(6px);
 }
-.ledger.is-settling.is-resolved .tally tr,
+.ledger.is-settling.is-resolved .balances tr,
+.ledger.is-settling.is-resolved .settle__pivot,
 .ledger.is-settling.is-resolved .payment {
   opacity: 1; transform: none;
   transition: opacity .45s ease, transform .45s ease;
 }
-.ledger.is-settling.is-resolved .tally tr:nth-child(2) { transition-delay: .08s; }
-.ledger.is-settling.is-resolved .tally tr:nth-child(3) { transition-delay: .16s; }
-.ledger.is-settling.is-resolved .payment:nth-child(1) { transition-delay: .42s; }
-.ledger.is-settling.is-resolved .payment:nth-child(2) { transition-delay: .54s; }
+/* balances appear first (staggered) */
+.ledger.is-settling.is-resolved .balances tr:nth-child(2) { transition-delay: .06s; }
+.ledger.is-settling.is-resolved .balances tr:nth-child(3) { transition-delay: .12s; }
+.ledger.is-settling.is-resolved .balances tr:nth-child(4) { transition-delay: .18s; }
+.ledger.is-settling.is-resolved .balances tr:nth-child(5) { transition-delay: .24s; }
+.ledger.is-settling.is-resolved .balances tr:nth-child(6) { transition-delay: .30s; }
+/* then the payoff number */
+.ledger.is-settling.is-resolved .settle__pivot { transition-delay: .42s; }
+/* then the solved payments */
+.ledger.is-settling.is-resolved .payment:nth-child(1) { transition-delay: .54s; }
+.ledger.is-settling.is-resolved .payment:nth-child(2) { transition-delay: .62s; }
+.ledger.is-settling.is-resolved .payment:nth-child(3) { transition-delay: .70s; }
+.ledger.is-settling.is-resolved .payment:nth-child(4) { transition-delay: .78s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .ledger.is-settling .tally tr,
+  .ledger.is-settling .balances tr,
+  .ledger.is-settling .settle__pivot,
   .ledger.is-settling .payment { opacity: 1; transform: none; transition: none; }
 }
