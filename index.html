@@ -51,25 +51,30 @@
         </div>
       </div>
 
-      <aside class="ledger hero__order-ledger" id="ledger" aria-label="Example settlement">
-        <div class="ledger__head">
-          <span class="ledger__title">Settle-up</span>
-          <span class="ledger__meta">3 players</span>
-        </div>
-        <table class="tally">
-          <tbody>
-            <tr><td class="tally__name">Phil</td><td class="tally__net up">+$120</td></tr>
-            <tr><td class="tally__name">Wolfgang</td><td class="tally__net down">&minus;$80</td></tr>
-            <tr><td class="tally__name">Doyle</td><td class="tally__net down">&minus;$40</td></tr>
-          </tbody>
-        </table>
-        <div class="ledger__rule"></div>
-        <ul class="payments">
-          <li class="payment"><span class="payment__from">Wolfgang</span><span class="payment__arrow">&rarr;</span><span class="payment__to">Phil</span><span class="payment__amt">$80</span></li>
-          <li class="payment"><span class="payment__from">Doyle</span><span class="payment__arrow">&rarr;</span><span class="payment__to">Phil</span><span class="payment__amt">$40</span></li>
-        </ul>
-        <div class="ledger__foot">2 payments &middot; settled</div>
-      </aside>
+        <aside class="ledger hero__order-ledger" id="ledger" aria-label="Example settlement: 6 players squared up in 4 payments">
+          <div class="settle__eyebrow">Friday night &middot; 6 players</div>
+          <table class="balances">
+            <tbody>
+              <tr><td class="balances__name">Doyle</td><td class="balances__net up">+$160</td></tr>
+              <tr><td class="balances__name">Daniel</td><td class="balances__net up">+$90</td></tr>
+              <tr><td class="balances__name">Liv</td><td class="balances__net down">&minus;$30</td></tr>
+              <tr><td class="balances__name">Erik</td><td class="balances__net down">&minus;$60</td></tr>
+              <tr><td class="balances__name">Antonio</td><td class="balances__net down">&minus;$60</td></tr>
+              <tr><td class="balances__name">Phil</td><td class="balances__net down">&minus;$100</td></tr>
+            </tbody>
+          </table>
+          <div class="settle__pivot">
+            <span class="settle__chev" aria-hidden="true">&#x25BE;</span>
+            <span class="settle__num">4</span> <span class="settle__unit">payments</span>
+          </div>
+          <ul class="payments">
+            <li class="payment"><span class="payment__from">Phil</span><span class="payment__arrow" aria-hidden="true">&rarr;</span><span class="payment__to">Doyle</span><span class="payment__amt">$100</span></li>
+            <li class="payment"><span class="payment__from">Antonio</span><span class="payment__arrow" aria-hidden="true">&rarr;</span><span class="payment__to">Doyle</span><span class="payment__amt">$60</span></li>
+            <li class="payment"><span class="payment__from">Erik</span><span class="payment__arrow" aria-hidden="true">&rarr;</span><span class="payment__to">Daniel</span><span class="payment__amt">$60</span></li>
+            <li class="payment"><span class="payment__from">Liv</span><span class="payment__arrow" aria-hidden="true">&rarr;</span><span class="payment__to">Daniel</span><span class="payment__amt">$30</span></li>
+          </ul>
+          <div class="settle__stamp">Minimized by Cash Cage</div>
+        </aside>
     </section>
 
     <section class="features" aria-label="Features">
