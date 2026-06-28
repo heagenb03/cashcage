@@ -66,6 +66,14 @@ strong { color: var(--text); font-weight: 600; }
 .topbar nav a { color: var(--muted); }
 .topbar nav a:hover, .topbar nav a[aria-current="page"] { color: var(--accent); }
 
+/* legal pages: centered wordmark, nav kept top-right */
+.topbar--legal { display: grid; grid-template-columns: 1fr auto 1fr; }
+.topbar--legal .wordmark { grid-column: 2; justify-self: center; }
+.topbar--legal nav { grid-column: 3; justify-self: end; }
+@media (max-width: 600px) {
+  .topbar--legal { display: flex; justify-content: space-between; }
+}
+
 /* ===== shell + layout ===== */
 .shell { max-width: 1040px; margin: 0 auto; padding: 48px 24px 0; }
 .layout {
