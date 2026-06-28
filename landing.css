@@ -30,39 +30,43 @@
 .cta--ghost { color: var(--muted); font-family: var(--mono); font-size: 13px; text-decoration: none; }
 .cta--ghost:hover { color: var(--accent); }
 
-/* ---- signature: the settlement ledger, seen through the cage bars ---- */
-.ledger {
-  position: relative; background: var(--surface); border: 1px solid var(--hairline);
-  border-radius: 16px; padding: 22px 24px;
+/* ---- signature: "The Cage" settlement card ---- */
+.cage {
+  position: relative; overflow: hidden;
+  background: linear-gradient(180deg, #1d1418 0%, var(--surface) 40%, #141a16 100%);
+  border: 1px solid #2a2320; border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .5);
 }
-/* brass cage bars bracketing the ledger */
-.ledger::before, .ledger::after {
-  content: ""; position: absolute; top: 14px; bottom: 14px; width: 1px;
-  background: var(--brass); opacity: .55;
+.cage__head {
+  display: flex; align-items: center; gap: 10px; padding: 13px 22px;
+  background: linear-gradient(180deg, rgba(201, 168, 106, .16), rgba(201, 168, 106, .04));
+  border-bottom: 1px solid rgba(201, 168, 106, .35);
 }
-.ledger::before { left: 8px; }
-.ledger::after { right: 8px; }
+.cage__bars { display: flex; gap: 3px; flex-shrink: 0; }
+.cage__bars i { width: 2px; height: 13px; background: var(--brass); opacity: .7; border-radius: 1px; }
+.cage__when {
+  font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--brass);
+}
+.cage__body { padding: 18px 22px 22px; }
+.cage__label {
+  font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--faint); margin-bottom: 8px;
+}
 
 /* ---- settle-up panel: balances -> payoff number -> payments ---- */
-.settle__eyebrow {
-  font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
-}
 .balances { width: 100%; border-collapse: collapse; }
 .balances td { padding: 5px 0; font-size: 15px; }
 .balances__name { font-family: var(--sans); color: var(--body); }
 .balances__net { text-align: right; font-family: var(--mono); font-weight: 700; font-variant-numeric: tabular-nums; }
 .balances__net.up { color: var(--up); }
 .balances__net.down { color: var(--down); }
-.settle__pivot { text-align: center; margin: 16px 0; }
-.settle__chev { display: block; color: var(--brass); font-size: 16px; line-height: 1; margin-bottom: 2px; }
-.settle__num { font-family: var(--display); font-weight: 700; font-size: 32px; color: var(--accent); }
-.settle__unit { font-family: var(--display); font-weight: 600; font-size: 17px; color: var(--text); }
-.settle__stamp {
-  display: inline-block; margin-top: 16px; font-family: var(--mono); font-size: 10px;
-  font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--up);
-  border: 1px solid rgba(0, 214, 111, .4); border-radius: 6px; padding: 4px 8px;
-}
+
+.cage__pivot { display: flex; align-items: center; gap: 16px; margin: 20px 0; }
+.cage__rule { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--brass), transparent); opacity: .5; }
+.cage__numwrap { display: flex; align-items: baseline; justify-content: center; gap: 9px; }
+.cage__num { font-family: var(--display); font-weight: 700; font-size: 46px; line-height: .9; color: var(--accent); letter-spacing: -1px; }
+.cage__unit { font-family: var(--display); font-weight: 600; font-size: 14px; color: var(--text); }
 
 .payments { list-style: none; display: flex; flex-direction: column; gap: 9px; }
 .payment { display: grid; grid-template-columns: 1fr auto 1fr auto; gap: 8px; align-items: center; font-size: 15px; }
@@ -102,33 +106,33 @@
 }
 
 /* ---- settle resolve animation (only active when JS opts in) ---- */
-.ledger.is-settling .balances tr,
-.ledger.is-settling .settle__pivot,
-.ledger.is-settling .payment {
+.cage.is-settling .balances tr,
+.cage.is-settling .cage__pivot,
+.cage.is-settling .payment {
   opacity: 0; transform: translateY(6px);
 }
-.ledger.is-settling.is-resolved .balances tr,
-.ledger.is-settling.is-resolved .settle__pivot,
-.ledger.is-settling.is-resolved .payment {
+.cage.is-settling.is-resolved .balances tr,
+.cage.is-settling.is-resolved .cage__pivot,
+.cage.is-settling.is-resolved .payment {
   opacity: 1; transform: none;
   transition: opacity .45s ease, transform .45s ease;
 }
 /* balances appear first (staggered) */
-.ledger.is-settling.is-resolved .balances tr:nth-child(2) { transition-delay: .06s; }
-.ledger.is-settling.is-resolved .balances tr:nth-child(3) { transition-delay: .12s; }
-.ledger.is-settling.is-resolved .balances tr:nth-child(4) { transition-delay: .18s; }
-.ledger.is-settling.is-resolved .balances tr:nth-child(5) { transition-delay: .24s; }
-.ledger.is-settling.is-resolved .balances tr:nth-child(6) { transition-delay: .30s; }
+.cage.is-settling.is-resolved .balances tr:nth-child(2) { transition-delay: .06s; }
+.cage.is-settling.is-resolved .balances tr:nth-child(3) { transition-delay: .12s; }
+.cage.is-settling.is-resolved .balances tr:nth-child(4) { transition-delay: .18s; }
+.cage.is-settling.is-resolved .balances tr:nth-child(5) { transition-delay: .24s; }
+.cage.is-settling.is-resolved .balances tr:nth-child(6) { transition-delay: .30s; }
 /* then the payoff number */
-.ledger.is-settling.is-resolved .settle__pivot { transition-delay: .42s; }
+.cage.is-settling.is-resolved .cage__pivot { transition-delay: .42s; }
 /* then the solved payments */
-.ledger.is-settling.is-resolved .payment:nth-child(1) { transition-delay: .54s; }
-.ledger.is-settling.is-resolved .payment:nth-child(2) { transition-delay: .62s; }
-.ledger.is-settling.is-resolved .payment:nth-child(3) { transition-delay: .70s; }
-.ledger.is-settling.is-resolved .payment:nth-child(4) { transition-delay: .78s; }
+.cage.is-settling.is-resolved .payment:nth-child(1) { transition-delay: .54s; }
+.cage.is-settling.is-resolved .payment:nth-child(2) { transition-delay: .62s; }
+.cage.is-settling.is-resolved .payment:nth-child(3) { transition-delay: .70s; }
+.cage.is-settling.is-resolved .payment:nth-child(4) { transition-delay: .78s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .ledger.is-settling .balances tr,
-  .ledger.is-settling .settle__pivot,
-  .ledger.is-settling .payment { opacity: 1; transform: none; transition: none; }
+  .cage.is-settling .balances tr,
+  .cage.is-settling .cage__pivot,
+  .cage.is-settling .payment { opacity: 1; transform: none; transition: none; }
 }
