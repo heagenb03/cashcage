@@ -61,7 +61,6 @@ strong { color: var(--text); font-weight: 600; }
   font-family: var(--display);
   font-size: 14px; font-weight: 700; letter-spacing: 3px; color: var(--text);
 }
-.topbar .wordmark .chev { color: var(--accent); }
 .topbar .wordmark:hover { color: var(--accent); }
 .topbar nav { display: flex; gap: 18px; font-family: var(--mono); font-size: 12px; }
 .topbar nav a { color: var(--muted); }
