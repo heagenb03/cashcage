@@ -2,6 +2,9 @@
 
 .lp-wrap { max-width: 1040px; margin: 0 auto; padding: 56px 24px 0; }
 
+/* ---- landing header: no nav, centered wordmark ---- */
+.topbar--landing { justify-content: center; }
+
 /* ---- hero ---- */
 .hero {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
