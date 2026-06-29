@@ -8,7 +8,7 @@
 /* ---- hero ---- */
 .hero {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
-  gap: 56px; align-items: center; margin-bottom: 24px;
+  gap: 56px; align-items: start; margin-bottom: 24px;
 }
 .hero__brand {
   display: block; width: 56px; height: 56px; border-radius: 14px;
