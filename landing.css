@@ -91,6 +91,7 @@
 .chip--p { background: var(--accent); border-color: rgba(255,255,255,.45); }
 .chip--g { background: var(--up); border-color: rgba(255,255,255,.45); }
 .chip--r { background: var(--down); border-color: rgba(255,255,255,.45); }
+.chip--b { background: var(--brass); border-color: rgba(255,255,255,.45); }
 .feature h3 { font-family: var(--display); font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
 .feature p { font-size: 14px; color: var(--muted); line-height: 1.5; }
 
