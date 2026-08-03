@@ -30,6 +30,11 @@
 .cta--ghost { color: var(--muted); font-family: var(--mono); font-size: 13px; text-decoration: none; }
 .cta--ghost:hover { color: var(--accent); }
 
+/* Product Hunt badge: the dark badge's SVG border equals its fill, so it has no
+   visible edge on --bg. This supplies one, matching .cage's border below. */
+.ph-badge { display: inline-block; border: 1px solid #262626; border-radius: 11px; }
+.ph-badge img { display: block; width: 250px; max-width: 100%; height: auto; }
+
 /* ---- signature: "The Cage" settlement card ---- */
 .cage {
   position: relative; overflow: hidden;
